@@ -1,0 +1,4 @@
+* Create Entity for products/product categories and inventory
+* Create InventoryImport controller which can parse exported Access->Excel files, 
+compare them with the existing inventory, and update, or insert as needed
+* Add dependency injector
