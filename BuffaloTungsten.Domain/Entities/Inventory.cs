@@ -16,14 +16,15 @@ namespace BuffaloTungsten.Domain.Entities
     {
         [Key]
         public int Id { get; set; }
-        
-        [Index]
+
+        [Index("IX_LotAndCycles", 1)]
         [StringLength(25)]
         public string LotNumber { get; set; }
 
-        // Cycles maybe should be a CyclesStart CyclesEnd although not sure how to key this if we do that. 
-        [Index]
-        public string Cycles { get; set; }
+        [Index("IX_LotAndCycles", 2)]
+        public int CycleStart { get; set; }
+        [Index("IX_LotAndCycles", 3)]
+        public int CycleEnd {get;set;}
         
         // This is the differentiator for all three lot types (receiving, production/furnace, finished lot)
         // There is a good chance this might end up being a table too

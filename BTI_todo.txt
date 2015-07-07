@@ -1,4 +1,16 @@
-* Create Entity for products/product categories and inventory
++ Create Entity for products/product categories and inventory
+  * Make sure to add the Receiving Inventory fields to the Inventory Entity
 * Create InventoryImport controller which can parse exported Access->Excel files, 
 compare them with the existing inventory, and update, or insert as needed
-* Add dependency injector
+  * Configure Inventory Repository injector
+- Add dependency injector
+* Create Inventory Repository
+- Do Migrations to create database
+* Get authentication/authorization working
+
+
+- Trying to get authentication/authorization working
+  - Fixed some Unity stuff regarding Identity 2
+  * Another issue with EF Migrations
+- Got EF Migrations working for Inventory databases I created
+- Started setting up webserver on my media computer for presentation to Tyler

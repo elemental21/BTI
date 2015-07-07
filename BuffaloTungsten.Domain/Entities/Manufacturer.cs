@@ -18,6 +18,6 @@ namespace BuffaloTungsten.Domain.Entities
         [StringLength(75)]
         public string Name { get; set; }
 
-        public virtual Inventory Inventories { get; set; }
+        public virtual List<Inventory> Inventories { get; set; }
     }
 }

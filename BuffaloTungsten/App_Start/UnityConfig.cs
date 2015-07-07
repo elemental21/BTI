@@ -1,6 +1,11 @@
 using System;
 using Microsoft.Practices.Unity;
 using Microsoft.Practices.Unity.Configuration;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using BuffaloTungsten.Models;
+using System.Data.Entity;
+using BuffaloTungsten.Controllers;
 
 namespace BuffaloTungsten.App_Start
 {
@@ -37,6 +42,22 @@ namespace BuffaloTungsten.App_Start
 
             // TODO: Register your types here
             // container.RegisterType<IProductRepository, ProductRepository>();
+            container.RegisterType(typeof(UserManager<>),
+            new InjectionConstructor(typeof(IUserStore<>)));
+            container.RegisterType<Microsoft.AspNet.Identity.IUser>(new InjectionFactory(c => c.Resolve<Microsoft.AspNet.Identity.IUser>()));
+            container.RegisterType(typeof(IUserStore<>), typeof(UserStore<>));
+            container.RegisterType<IdentityUser, ApplicationUser>(new ContainerControlledLifetimeManager());
+            container.RegisterType<DbContext, ApplicationDbContext>(new ContainerControlledLifetimeManager());
+
+            container.RegisterType<DbContext, ApplicationDbContext>(
+    new HierarchicalLifetimeManager());
+            container.RegisterType<UserManager<ApplicationUser>>(
+                new HierarchicalLifetimeManager());
+            container.RegisterType<IUserStore<ApplicationUser>, UserStore<ApplicationUser>>(
+                new HierarchicalLifetimeManager());
+
+            container.RegisterType<AccountController>(
+                new InjectionConstructor());
         }
     }
 }
