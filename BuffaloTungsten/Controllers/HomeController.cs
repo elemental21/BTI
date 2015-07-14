@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using BuffaloTungsten.Domain.DataContexts;
 
 namespace BuffaloTungsten.Controllers
 {
@@ -10,7 +11,12 @@ namespace BuffaloTungsten.Controllers
     {
         public ActionResult Index()
         {
+            //var db = new BuffaloTungstenDB();
+            //var myquery = db.Furnaces.Where(x => x.Name == "myfunace");
+            //var results = myquery.FirstOrDefault();
             return View();
+            
+
         }
 
         public ActionResult About()

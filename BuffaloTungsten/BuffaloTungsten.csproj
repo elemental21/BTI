@@ -294,6 +294,12 @@
       <DependentUpon>201507070333277_BlankAgain.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BuffaloTungsten.Domain\BuffaloTungsten.Domain.csproj">
+      <Project>{85b3d803-feeb-453e-bb7a-8633215d2ff9}</Project>
+      <Name>BuffaloTungsten.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

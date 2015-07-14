@@ -6,6 +6,8 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using BuffaloTungsten.Models;
 using System.Data.Entity;
 using BuffaloTungsten.Controllers;
+using Microsoft.Owin.Security;
+using System.Web;
 
 namespace BuffaloTungsten.App_Start
 {
@@ -42,6 +44,10 @@ namespace BuffaloTungsten.App_Start
 
             // TODO: Register your types here
             // container.RegisterType<IProductRepository, ProductRepository>();
+
+            
+            // Required for Identity2 with Unity from:
+            //http://stackoverflow.com/questions/23810055/microsoft-practice-using-unity-register-type
             container.RegisterType(typeof(UserManager<>),
             new InjectionConstructor(typeof(IUserStore<>)));
             container.RegisterType<Microsoft.AspNet.Identity.IUser>(new InjectionFactory(c => c.Resolve<Microsoft.AspNet.Identity.IUser>()));
@@ -49,15 +55,7 @@ namespace BuffaloTungsten.App_Start
             container.RegisterType<IdentityUser, ApplicationUser>(new ContainerControlledLifetimeManager());
             container.RegisterType<DbContext, ApplicationDbContext>(new ContainerControlledLifetimeManager());
 
-            container.RegisterType<DbContext, ApplicationDbContext>(
-    new HierarchicalLifetimeManager());
-            container.RegisterType<UserManager<ApplicationUser>>(
-                new HierarchicalLifetimeManager());
-            container.RegisterType<IUserStore<ApplicationUser>, UserStore<ApplicationUser>>(
-                new HierarchicalLifetimeManager());
-
-            container.RegisterType<AccountController>(
-                new InjectionConstructor());
+            container.RegisterType<IAuthenticationManager>(new InjectionFactory(o => HttpContext.Current.GetOwinContext().Authentication));
         }
     }
 }
