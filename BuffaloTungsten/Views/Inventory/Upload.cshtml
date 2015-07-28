@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "Upload";
+}
+
+<h2>UploadInventory</h2>
+
+@using (Html.BeginForm("Upload", "Inventory", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+    <div class="form-group">
+        @Html.Label("Inventory File", new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <input type="file" id="InventoryFile" name="file" />
+            <input type="submit" />
+        </div>
+    </div>
+}

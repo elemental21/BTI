@@ -46,6 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\IInventoryRepository.cs" />
+    <Compile Include="Concrete\InventoryRepository.cs" />
     <Compile Include="DataContexts\BuffaloTungstenDB.cs" />
     <Compile Include="Entities\Customer.cs" />
     <Compile Include="Entities\Furnace.cs" />
@@ -61,10 +63,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Abstract\" />
-    <Folder Include="Concrete\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="App.config">
       <SubType>Designer</SubType>

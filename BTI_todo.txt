@@ -11,6 +11,11 @@ compare them with the existing inventory, and update, or insert as needed
 
 - Trying to get authentication/authorization working
   - Fixed some Unity stuff regarding Identity 2
-  * Another issue with EF Migrations
+  - Another issue with EF Migrations and Identity
 - Got EF Migrations working for Inventory databases I created
 - Started setting up webserver on my media computer for presentation to Tyler
+
+Error	1	Web deployment task failed. (Could not connect to the remote computer ("192.168.10.146"). 
+On the remote computer, make sure that Web Deploy is installed and that the required process 
+("Web Management Service") is started.  Learn more at: 
+http://go.microsoft.com/fwlink/?LinkId=221672#ERROR_DESTINATION_NOT_REACHABLE.)		0	0	BuffaloTungsten
