@@ -53,6 +53,7 @@
     <Compile Include="Entities\Furnace.cs" />
     <Compile Include="Entities\Inventory.cs" />
     <Compile Include="Entities\InventoryType.cs" />
+    <Compile Include="Entities\LotType.cs" />
     <Compile Include="Entities\Manufacturer.cs" />
     <Compile Include="Entities\ProductType.cs" />
     <Compile Include="Entities\Product.cs" />

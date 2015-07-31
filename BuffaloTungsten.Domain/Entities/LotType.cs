@@ -8,20 +8,21 @@ using System.Threading.Tasks;
 
 namespace BuffaloTungsten.Domain.Entities
 {
-    public class Product
+    /// <summary>
+    /// This is the differentiator for all three lot types (receiving, production/furnace, finished lot)
+    /// This is used on all 
+    /// </summary>
+    public class LotType
     {
         [Key]
         public int Id { get; set; }
 
+        [Index]
+        [StringLength(10)]
         public string Name { get; set; }
-
-        public virtual ProductType ProductType { get; set; }
 
         public virtual List<Inventory> Inventories { get; set; }
 
-        // This is the differentiator for all three lot types (receiving, production/furnace, finished lot)
-        // Here it is used because all the inventory inside each product is always one of the three types
-        [Index]
-        public virtual LotType LotType { get; set; }
+        public virtual List<ProductType> ProductTypes { get; set; }
     }
 }

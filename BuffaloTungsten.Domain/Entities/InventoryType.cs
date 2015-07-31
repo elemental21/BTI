@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace BuffaloTungsten.Domain.Entities
 {
+    /// <summary>
+    /// This is a furnace run type for use in inventory values W/Rerun/Toll
+    /// </summary>
     public class InventoryType
     {
         [Key]

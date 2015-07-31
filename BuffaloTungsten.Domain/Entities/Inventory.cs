@@ -26,12 +26,6 @@ namespace BuffaloTungsten.Domain.Entities
         [Index("IX_LotAndCycles", 3)]
         public int CycleEnd {get;set;}
         
-        // This is the differentiator for all three lot types (receiving, production/furnace, finished lot)
-        // There is a good chance this might end up being a table too
-        [Index]
-        [StringLength(10)]
-        public string LotType { get; set; }
-
         [StringLength(25)]
         public string SizeRange { get; set; }
 
@@ -58,6 +52,11 @@ namespace BuffaloTungsten.Domain.Entities
         [Index]
         public virtual Furnace Furnace { get; set; }
 
+        // This is the differentiator for all three lot types (receiving, production/furnace, finished lot)
+        [Index]
+        public virtual LotType LotType { get; set; }
+
+        // The Type selector in production inventory 
         public virtual InventoryType InventoryType { get; set; }
 
         public virtual Manufacturer Manufacturer { get; set; }

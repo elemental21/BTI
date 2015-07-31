@@ -22,6 +22,6 @@ namespace BuffaloTungsten.Domain.DataContexts
 
         public DbSet<Manufacturer> Manufacturers { get; set; }
 
-        public DbSet<InventoryType> InventoryTypes { get; set; }
+        public DbSet<Type> InventoryTypes { get; set; }
     } 
 }
