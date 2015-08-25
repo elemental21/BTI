@@ -47,7 +47,7 @@ namespace BuffaloTungsten.Domain.Entities
         public string Notes { get; set; }
 
         [Index]
-        public virtual Product Product { get; set; }
+        public virtual Category Product { get; set; }
 
         [Index]
         public virtual Furnace Furnace { get; set; }

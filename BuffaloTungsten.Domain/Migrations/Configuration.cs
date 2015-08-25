@@ -28,23 +28,44 @@ namespace BuffaloTungsten.Domain.Migrations
             //    );
             //
 
-            context.ProductTypes.AddOrUpdate(
+            context.LotTypes.AddOrUpdate(
                 p => p.Name,
-                new ProductType { Name = "W Powder" },
-                new ProductType { Name = "Crushed Carbide" },
-                new ProductType { Name = "Rod" },
-                new ProductType { Name = "Consignment" },
-                new ProductType { Name = "Toll Powder" },
-                new ProductType { Name = "Ore" },
-                new ProductType { Name = "Mo Powder" }
+                new LotType { Name = "receiving" },
+                new LotType { Name = "production" },
+                new LotType { Name = "finished" }
                 );
-            var powder = context.ProductTypes.Where(x => x.Name == "W Powder").FirstOrDefault();
-            context.Products.AddOrUpdate(
-                p => p.Name,        
-                new Product { ProductType = powder, Name = "APT" },
-                new Product { ProductType = powder, Name = "Oxide" },
-                new Product { ProductType = powder, Name = "" }
+
+            context.Categories.AddOrUpdate(
+                p => p.Name,
+                new Category { Name = "W Powder" },
+                new Category { Name = "Crushed Carbide" },
+                new Category { Name = "Rod" },
+                new Category { Name = "Consignment" },
+                new Category { Name = "Toll Powder" },
+                new Category { Name = "Ore" },
+                new Category { Name = "Mo Powder" }
                 );
+            // This has to be run here otheriwse the above parent categories will be null when assigned to the children below
+            context.SaveChanges();
+            //var powder = context.Categories.Add(new Category() { Name = "W Powder" });
+
+            var powder = context.Categories.Where(x => x.Name == "W Powder").FirstOrDefault();
+            var finished = context.LotTypes.Where(x => x.Name == "finished").FirstOrDefault();
+
+            context.Categories.AddOrUpdate(
+                p => p.Name,
+                new Category { Parent = powder, LotType = finished, Name = "APT" },
+                new Category { Parent = powder, LotType = finished, Name = "Oxide" }
+                //new Category { ProductType = powder, Name = "" }
+                );
+
+
+            //context.Categories.Add(new Category()
+            //    {
+            //        Name = "APT",
+            //        LotType = finished,
+            //        Parent = powder
+            //    });
         }
     }
 }

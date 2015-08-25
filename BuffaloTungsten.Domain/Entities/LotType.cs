@@ -23,6 +23,6 @@ namespace BuffaloTungsten.Domain.Entities
 
         public virtual List<Inventory> Inventories { get; set; }
 
-        public virtual List<ProductType> ProductTypes { get; set; }
+        public virtual List<Category> ProductCategories { get; set; }
     }
 }

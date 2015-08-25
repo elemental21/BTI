@@ -7,13 +7,13 @@ namespace BuffaloTungsten.Domain.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class Inventories : IMigrationMetadata
+    public sealed partial class Inventory : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Inventories));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Inventory));
         
         string IMigrationMetadata.Id
         {
-            get { return "201507070204035_Inventories"; }
+            get { return "201508250316500_Inventory"; }
         }
         
         string IMigrationMetadata.Source

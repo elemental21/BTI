@@ -12,9 +12,7 @@ namespace BuffaloTungsten.Domain.DataContexts
     {
         public DbSet<Inventory> Inventories { get; set; }
 
-        public DbSet<Product> Products { get; set; }
-
-        public DbSet<ProductType> ProductTypes { get; set; }
+        public DbSet<Category> Categories { get; set; }
 
         public DbSet<Furnace> Furnaces { get; set; }
 
@@ -22,6 +20,8 @@ namespace BuffaloTungsten.Domain.DataContexts
 
         public DbSet<Manufacturer> Manufacturers { get; set; }
 
-        public DbSet<Type> InventoryTypes { get; set; }
+        public DbSet<InventoryType> InventoryTypes { get; set; }
+
+        public DbSet<LotType> LotTypes { get; set; }
     } 
 }

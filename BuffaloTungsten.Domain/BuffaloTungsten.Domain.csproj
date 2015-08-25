@@ -55,16 +55,14 @@
     <Compile Include="Entities\InventoryType.cs" />
     <Compile Include="Entities\LotType.cs" />
     <Compile Include="Entities\Manufacturer.cs" />
-    <Compile Include="Entities\ProductType.cs" />
-    <Compile Include="Entities\Product.cs" />
-    <Compile Include="Migrations\201507070204035_Inventories.cs" />
-    <Compile Include="Migrations\201507070204035_Inventories.Designer.cs">
-      <DependentUpon>201507070204035_Inventories.cs</DependentUpon>
+    <Compile Include="Entities\Category.cs" />
+    <Compile Include="Migrations\201508250316500_Inventory.cs" />
+    <Compile Include="Migrations\201508250316500_Inventory.Designer.cs">
+      <DependentUpon>201508250316500_Inventory.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <None Include="App.config">
       <SubType>Designer</SubType>
@@ -72,8 +70,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201507070204035_Inventories.resx">
-      <DependentUpon>201507070204035_Inventories.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201508250316500_Inventory.resx">
+      <DependentUpon>201508250316500_Inventory.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
