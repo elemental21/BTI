@@ -8,6 +8,8 @@ using System.Data.Entity;
 using BuffaloTungsten.Controllers;
 using Microsoft.Owin.Security;
 using System.Web;
+using BuffaloTungsten.Domain.Abstract;
+using BuffaloTungsten.Domain.Concrete;
 
 namespace BuffaloTungsten.App_Start
 {
@@ -56,6 +58,8 @@ namespace BuffaloTungsten.App_Start
             container.RegisterType<DbContext, ApplicationDbContext>(new ContainerControlledLifetimeManager());
 
             container.RegisterType<IAuthenticationManager>(new InjectionFactory(o => HttpContext.Current.GetOwinContext().Authentication));
+
+            container.RegisterType<ICategoryRepository, CategoryRepository>();
         }
     }
 }

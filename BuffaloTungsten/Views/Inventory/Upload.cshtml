@@ -1,4 +1,4 @@
-﻿
+﻿@model BuffaloTungsten.Models.UploadViewModel
 @{
     ViewBag.Title = "Upload";
 }
@@ -11,6 +11,11 @@
     <div class="form-group">
         @Html.Label("Inventory File", new { @class = "control-label col-md-2" })
         <div class="col-md-10">
+            @Html.LabelFor(m => m.SelectedCategoryId)
+            @Html.DropDownListFor(m => m.SelectedCategoryId, Model.Products)
+            @Html.ValidationMessageFor(m => m.SelectedCategoryId)
+            <input type="submit" value="Submit" />  
+
             <input type="file" id="InventoryFile" name="file" />
             <input type="submit" />
         </div>

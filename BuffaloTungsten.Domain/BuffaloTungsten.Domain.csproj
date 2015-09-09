@@ -46,7 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\ICategoryRepository.cs" />
     <Compile Include="Abstract\IInventoryRepository.cs" />
+    <Compile Include="Concrete\CategoryRepository.cs" />
     <Compile Include="Concrete\InventoryRepository.cs" />
     <Compile Include="DataContexts\BuffaloTungstenDB.cs" />
     <Compile Include="Entities\Customer.cs" />
