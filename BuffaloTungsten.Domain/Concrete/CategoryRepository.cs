@@ -11,11 +11,11 @@ namespace BuffaloTungsten.Domain.Concrete
 {
     public class CategoryRepository : ICategoryRepository
     {
-        private BuffaloTungstenDB context = new BuffaloTungstenDB();
+        private BuffaloTungstenDB _context = new BuffaloTungstenDB();
 
         IQueryable<Category> ICategoryRepository.Categories
         {
-            get { return context.Categories; }
+            get { return _context.Categories; }
         }
     }
 }

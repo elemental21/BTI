@@ -10,5 +10,7 @@ namespace BuffaloTungsten.Domain.Abstract
     interface IInventoryRepository
     {
         IEnumerable<Inventory> GetInventoryByLot(string lotNumber, string lotType);
+
+        void AddOrUpdateInventory(IEnumerable<Inventory> items);
     }
 }

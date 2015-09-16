@@ -12,7 +12,12 @@ namespace BuffaloTungsten.Models
         public List<ProductCategory> ProductCategories { get; set; }
 
         [Display(Name = "Select Product Category")]
+        [Required]
         public int SelectedCategoryId { get; set; }
+
+        [Display(Name = "Upload excel file")]
+        [Required]
+        public HttpPostedFileBase ExcelFile { get; set; }
 
         public IEnumerable<SelectListItem> Products
         {
