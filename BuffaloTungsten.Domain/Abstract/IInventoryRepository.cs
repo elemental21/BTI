@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BuffaloTungsten.Domain.Abstract
 {
-    interface IInventoryRepository
+    public interface IInventoryRepository
     {
         IEnumerable<Inventory> GetInventoryByLot(string lotNumber, string lotType);
 

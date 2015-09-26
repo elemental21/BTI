@@ -60,6 +60,7 @@ namespace BuffaloTungsten.App_Start
             container.RegisterType<IAuthenticationManager>(new InjectionFactory(o => HttpContext.Current.GetOwinContext().Authentication));
 
             container.RegisterType<ICategoryRepository, CategoryRepository>();
+            container.RegisterType<IInventoryRepository, InventoryRepository>();
         }
     }
 }

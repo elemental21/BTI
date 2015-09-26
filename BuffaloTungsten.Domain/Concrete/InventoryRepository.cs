@@ -9,7 +9,7 @@ using System.Data.Entity.Migrations;
 
 namespace BuffaloTungsten.Domain.Concrete
 {
-    class InventoryRepository : IInventoryRepository
+    public class InventoryRepository : IInventoryRepository
     {
         private BuffaloTungstenDB _context = new BuffaloTungstenDB();
 
@@ -22,6 +22,11 @@ namespace BuffaloTungsten.Domain.Concrete
         void IInventoryRepository.AddOrUpdateInventory(IEnumerable<Entities.Inventory> items)
         {
             _context.Inventories.AddOrUpdate(p => p.LotNumber, items.ToArray());
+            //foreach (var item in items)
+            //{
+            //    _context.Inventories.Add(item);
+            //}
+            _context.SaveChanges();
         }
     }
 }
