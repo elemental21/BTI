@@ -47,6 +47,8 @@ namespace BuffaloTungsten.Controllers
             List<Inventory> items = new List<Inventory>();
             Inventory item = new Inventory();
             List<string> header = new List<string>();
+            Category productCategory = _categoryRepo.Categories.Where(x => x.Id == model.SelectedCategoryId).FirstOrDefault();
+
             for (var x = 0; excelReader.Read(); x++)
             {  
                 for (var y = 0; y < excelReader.FieldCount; y++)
@@ -92,6 +94,9 @@ namespace BuffaloTungsten.Controllers
 
                         if (header[y] == "Notes")
                         { item.Notes = excelReader.GetString(y); }
+
+                        item.Product_Id = model.SelectedCategoryId;
+                        item.LotType_Id = productCategory.LotType.Id;
                     }
                 }
                 if (x > 0)

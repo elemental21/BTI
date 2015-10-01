@@ -51,11 +51,16 @@ namespace BuffaloTungsten.Domain.Migrations
 
             var powder = context.Categories.Where(x => x.Name == "W Powder").FirstOrDefault();
             var finished = context.LotTypes.Where(x => x.Name == "finished").FirstOrDefault();
+            var production = context.LotTypes.Where(x => x.Name == "production").FirstOrDefault();
 
             context.Categories.AddOrUpdate(
                 p => p.Name,
                 new Category { Parent = powder, LotType = finished, Name = "APT" },
-                new Category { Parent = powder, LotType = finished, Name = "Oxide" }
+                new Category { Parent = powder, LotType = finished, Name = "Oxide" },
+                new Category { Parent = powder, LotType = finished, Name = "WLot" },
+                new Category { Parent = powder, LotType = production, Name = "WFurnace" },
+                new Category { Parent = powder, LotType = finished, Name = "WCLot" },
+                new Category { Parent = powder, LotType = production, Name = "WCFurnace" }
                 //new Category { ProductType = powder, Name = "" }
                 );
 

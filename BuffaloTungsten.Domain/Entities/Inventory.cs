@@ -46,21 +46,33 @@ namespace BuffaloTungsten.Domain.Entities
         [StringLength(255)]
         public string Notes { get; set; }
 
+        [ForeignKey("Product")]
+        public int Product_Id { get; set; }
         [Index]
         public virtual Category Product { get; set; }
 
+        [ForeignKey("Furnace")]
+        public int? Furnace_Id { get; set; }
         [Index]
         public virtual Furnace Furnace { get; set; }
 
         // This is the differentiator for all three lot types (receiving, production/furnace, finished lot)
+        [ForeignKey("LotType")]
+        public int LotType_Id { get; set; }
         [Index]
         public virtual LotType LotType { get; set; }
 
         // The Type selector in production inventory 
+        [ForeignKey("InventoryType")]
+        public int? InventoryType_Id { get; set; }
         public virtual InventoryType InventoryType { get; set; }
 
+        [ForeignKey("Manufacturer")]
+        public int? Manufacturer_Id { get; set; }
         public virtual Manufacturer Manufacturer { get; set; }
 
+        [ForeignKey("Customer")]
+        public int? Customer_Id { get; set; }
         public virtual Customer Customer { get; set; }
     }
 }

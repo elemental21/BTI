@@ -62,6 +62,18 @@
     <Compile Include="Migrations\201508250316500_Inventory.Designer.cs">
       <DependentUpon>201508250316500_Inventory.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201510010151417_Inventory_ProductId.cs" />
+    <Compile Include="Migrations\201510010151417_Inventory_ProductId.Designer.cs">
+      <DependentUpon>201510010151417_Inventory_ProductId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201510010203358_Inventory_AddedForeignKeys.cs" />
+    <Compile Include="Migrations\201510010203358_Inventory_AddedForeignKeys.Designer.cs">
+      <DependentUpon>201510010203358_Inventory_AddedForeignKeys.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201510010241327_Inventory_NullableForeignKeys.cs" />
+    <Compile Include="Migrations\201510010241327_Inventory_NullableForeignKeys.Designer.cs">
+      <DependentUpon>201510010241327_Inventory_NullableForeignKeys.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -74,6 +86,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201508250316500_Inventory.resx">
       <DependentUpon>201508250316500_Inventory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510010151417_Inventory_ProductId.resx">
+      <DependentUpon>201510010151417_Inventory_ProductId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510010203358_Inventory_AddedForeignKeys.resx">
+      <DependentUpon>201510010203358_Inventory_AddedForeignKeys.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510010241327_Inventory_NullableForeignKeys.resx">
+      <DependentUpon>201510010241327_Inventory_NullableForeignKeys.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
