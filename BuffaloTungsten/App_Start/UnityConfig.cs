@@ -61,6 +61,7 @@ namespace BuffaloTungsten.App_Start
 
             container.RegisterType<ICategoryRepository, CategoryRepository>();
             container.RegisterType<IInventoryRepository, InventoryRepository>();
+            container.RegisterType<ICustomerRepository, CustomerRepository>();
         }
     }
 }

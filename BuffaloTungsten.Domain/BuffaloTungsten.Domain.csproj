@@ -46,8 +46,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\ICustomerRepository.cs" />
     <Compile Include="Abstract\ICategoryRepository.cs" />
     <Compile Include="Abstract\IInventoryRepository.cs" />
+    <Compile Include="Concrete\CustomerRepository.cs" />
     <Compile Include="Concrete\CategoryRepository.cs" />
     <Compile Include="Concrete\InventoryRepository.cs" />
     <Compile Include="DataContexts\BuffaloTungstenDB.cs" />
@@ -74,6 +76,10 @@
     <Compile Include="Migrations\201510010241327_Inventory_NullableForeignKeys.Designer.cs">
       <DependentUpon>201510010241327_Inventory_NullableForeignKeys.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201510220106203_CustomerEntity.cs" />
+    <Compile Include="Migrations\201510220106203_CustomerEntity.Designer.cs">
+      <DependentUpon>201510220106203_CustomerEntity.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -95,6 +101,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201510010241327_Inventory_NullableForeignKeys.resx">
       <DependentUpon>201510010241327_Inventory_NullableForeignKeys.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510220106203_CustomerEntity.resx">
+      <DependentUpon>201510220106203_CustomerEntity.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

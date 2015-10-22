@@ -1,0 +1,75 @@
+﻿@model BuffaloTungsten.Models.CustomerViewModel
+
+@{
+    ViewBag.Title = "Customer Management";
+}
+
+<h2>Customer Manangement</h2>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#createCustomer">
+    Create New Customer
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="createCustomer" tabindex="-1" role="dialog" aria-labelledby="CreateCustomerLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Create New Customer</h4>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    @using (Html.BeginForm("Create", "Customer", FormMethod.Post))
+                    {
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    @Html.ValidationMessageFor(m => m.FirstName)
+                                    @Html.TextBoxFor(x => x.FirstName, new { @class = "form-control", placeholder = "First Name" })
+                                </div>
+                                <div class="col-md-2">
+                                    @Html.TextBoxFor(x => x.MiddleInitial, new { @class = "form-control", placeholder = "M.I.", size="4" })
+                                </div>
+                                <div class="col-md-5">
+                                    @Html.ValidationMessageFor(m => m.LastName)
+                                    @Html.TextBoxFor(x => x.LastName, new { @class = "form-control", placeholder = "Last Name" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    @Html.TextBoxFor(x => x.Email, new { @class="form-control", placeholder="Email Address"})
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    @Html.TextBoxFor(x => x.PhoneNumber, new { @class = "form-control", placeholder = "Phone Number" })
+                                </div>
+                                <div class="col-md-3">
+                                    @Html.TextBoxFor(x => x.Extention, new { @class = "form-control", placeholder = "Ext" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    @Html.TextAreaFor(x => x.Notes, new { @class = "form-control", placeholder = "Notes", rows="5" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-default">Submit</button>
+                        </div>
+                    }
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
