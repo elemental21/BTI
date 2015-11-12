@@ -53,6 +53,8 @@
     <Compile Include="Concrete\CategoryRepository.cs" />
     <Compile Include="Concrete\InventoryRepository.cs" />
     <Compile Include="DataContexts\BuffaloTungstenDB.cs" />
+    <Compile Include="Entities\Address.cs" />
+    <Compile Include="Entities\Contact.cs" />
     <Compile Include="Entities\Customer.cs" />
     <Compile Include="Entities\Furnace.cs" />
     <Compile Include="Entities\Inventory.cs" />

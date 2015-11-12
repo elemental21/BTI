@@ -33,7 +33,7 @@ namespace BuffaloTungsten.Controllers
             {
                 return View("Index",model);
             }
-            Customer customer = new Customer();
+            Contact customer = new Contact();
             customer.FirstName = model.FirstName;
             customer.LastName = model.LastName;
             customer.Email = model.Email;

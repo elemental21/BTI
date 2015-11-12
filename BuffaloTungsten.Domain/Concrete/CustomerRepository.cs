@@ -13,12 +13,12 @@ namespace BuffaloTungsten.Domain.Concrete
     {
         private BuffaloTungstenDB _context = new BuffaloTungstenDB();
 
-        public IQueryable<Customer> Customers
+        public IQueryable<Contact> Customers
         {
             get { return _context.Customers; }
         }
 
-        public void AddCustomer(Customer customer)
+        public void AddCustomer(Contact customer)
         {
             _context.Customers.Add(customer);
         }

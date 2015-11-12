@@ -9,9 +9,9 @@ namespace BuffaloTungsten.Domain.Abstract
 {
     public interface ICustomerRepository
     {
-        IQueryable<Customer> Customers { get; }
+        IQueryable<Contact> Customers { get; }
 
-        void AddCustomer(Customer customer);
+        void AddCustomer(Contact customer);
 
         void Save();
     }

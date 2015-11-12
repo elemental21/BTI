@@ -16,7 +16,7 @@ namespace BuffaloTungsten.Domain.DataContexts
 
         public DbSet<Furnace> Furnaces { get; set; }
 
-        public DbSet<Customer> Customers { get; set; }
+        public DbSet<Contact> Customers { get; set; }
 
         public DbSet<Manufacturer> Manufacturers { get; set; }
 
