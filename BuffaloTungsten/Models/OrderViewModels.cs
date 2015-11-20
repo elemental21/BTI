@@ -7,7 +7,7 @@ using System.Web.Mvc;
 
 namespace BuffaloTungsten.Models
 {
-    public class IndexViewModel
+    public class OrderIndexViewModel
     {
         public List<Customer> CustomerList { get; set; }
         public IEnumerable<SelectListItem> Customers

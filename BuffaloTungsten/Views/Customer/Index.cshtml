@@ -1,11 +1,24 @@
-﻿@model BuffaloTungsten.Models.CustomerViewModel
+﻿@model BuffaloTungsten.Models.CustomerIndexViewModel
 
 @{
     ViewBag.Title = "Customer Management";
 }
 
+@section Scripts
+{
+    <script>
+        @if (Model.SubmitSuccess == false)
+        {
+            <text> $('#createCustomer').modal('show'); </text>
+        }
+    </script>
+}
+
 <h2>Customer Manangement</h2>
 
+@if (Model.SubmitSuccess == null)
+{ <div class="well well-lg greenSuccess">New Customer Created!</div> }
+                                           
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#createCustomer">
     Create New Customer
@@ -13,63 +26,209 @@
 
 <!-- Modal -->
 <div class="modal fade" id="createCustomer" tabindex="-1" role="dialog" aria-labelledby="CreateCustomerLabel">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title" id="myModalLabel">Create New Customer</h4>
             </div>
             <div class="modal-body">
-                <div class="container-fluid">
-                    @using (Html.BeginForm("Create", "Customer", FormMethod.Post))
-                    {
-                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                        <div class="form-group">
-                            <div class="row">
-                                <div class="col-md-5">
-                                    @Html.ValidationMessageFor(m => m.FirstName)
-                                    @Html.TextBoxFor(x => x.FirstName, new { @class = "form-control", placeholder = "First Name" })
-                                </div>
-                                <div class="col-md-2">
-                                    @Html.TextBoxFor(x => x.MiddleInitial, new { @class = "form-control", placeholder = "M.I.", size="4" })
-                                </div>
-                                <div class="col-md-5">
-                                    @Html.ValidationMessageFor(m => m.LastName)
-                                    @Html.TextBoxFor(x => x.LastName, new { @class = "form-control", placeholder = "Last Name" })
-                                </div>
-                            </div>
-                        </div>
+            @using (Html.BeginForm("Create", "Customer", FormMethod.Post))
+            {
+                <div class="row leftRightCol">
+                    <div class="col-md-6 leftCol">
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-md-12">
-                                    @Html.TextBoxFor(x => x.Email, new { @class="form-control", placeholder="Email Address"})
+                                    @Html.TextBoxFor(x => x.CompanyName, new { @class = "form-control", placeholder = "Company Name" })
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    @Html.TextBoxFor(x => x.PhoneNumber, new { @class = "form-control", placeholder = "Phone Number" })
+                        <div class="panel panel-default">
+                            <div class="panel-heading">Company Contact</div>
+                            <div class="panel-body">
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-5">
+                                            @Html.ValidationMessageFor(m => m.FirstName)
+                                            @Html.TextBoxFor(x => x.FirstName, new { @class = "form-control", placeholder = "First Name" })
+                                        </div>
+                                        <div class="col-md-2">
+                                            @Html.TextBoxFor(x => x.MiddleInitial, new { @class = "form-control", placeholder = "M.I.", size = "4" })
+                                        </div>
+                                        <div class="col-md-5">
+                                            @Html.ValidationMessageFor(m => m.LastName)
+                                            @Html.TextBoxFor(x => x.LastName, new { @class = "form-control", placeholder = "Last Name" })
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="col-md-3">
-                                    @Html.TextBoxFor(x => x.Extention, new { @class = "form-control", placeholder = "Ext" })
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            @Html.TextBoxFor(x => x.Title, new { @class = "form-control", placeholder = "Title" })
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    @Html.TextAreaFor(x => x.Notes, new { @class = "form-control", placeholder = "Notes", rows="5" })
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            @Html.ValidationMessageFor(m => m.Email)
+                                            @Html.TextBoxFor(x => x.Email, new { @class = "form-control", placeholder = "Email Address" })
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-default">Submit</button>
-                        </div>
-                    }
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            @Html.ValidationMessageFor(m => m.PhoneNumber)
+                                            @Html.TextBoxFor(x => x.PhoneNumber, new { @class = "form-control", placeholder = "Phone Number" })
+                                        </div>
+                                        <div class="col-md-3">
+                                            @Html.TextBoxFor(x => x.Extention, new { @class = "form-control", placeholder = "Ext" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            @Html.TextAreaFor(x => x.Notes, new { @class = "form-control", placeholder = "Notes", rows = "5" })
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> @* Panel Body *@
+                        </div> @* Panel *@
+                    </div> <!-- End left col -->
+                    <div class="col-md-6 leftRightCol">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">Shipping Address</div>
+                            <div class="panel-body">
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            @Html.ValidationMessageFor(m => m.ShippingAddress.Name)
+                                            @Html.TextBoxFor(x => x.ShippingAddress.Name, new { @class = "form-control", placeholder = "Location Name" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            @Html.ValidationMessageFor(m => m.ShippingAddress.Address1)
+                                            @Html.TextBoxFor(x => x.ShippingAddress.Address1, new { @class = "form-control", placeholder = "Address" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            @Html.TextBoxFor(x => x.ShippingAddress.Address2, new { @class = "form-control", placeholder = "Address Line 2" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            @Html.ValidationMessageFor(m => m.ShippingAddress.City)
+                                            @Html.TextBoxFor(x => x.ShippingAddress.City, new { @class = "form-control", placeholder = "City" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            @Html.ValidationMessageFor(m => m.ShippingAddress.State)
+                                            @Html.TextBoxFor(x => x.ShippingAddress.State, new { @class = "form-control", placeholder = "State" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            @Html.ValidationMessageFor(m => m.ShippingAddress.PostalCode)
+                                            @Html.TextBoxFor(x => x.ShippingAddress.PostalCode, new { @class = "form-control", placeholder = "Postal Code" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            @Html.ValidationMessageFor(m => m.ShippingAddress.Country)
+                                            @Html.TextBoxFor(x => x.ShippingAddress.Country, new { @class = "form-control", placeholder = "Country" })
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> <!-- shipping panel body -->
+                        </div> <!-- shipping panel -->
+                        <!-- Billing Address -->
+                        <div class="panel panel-default">
+                            <div class="panel-heading">Billing Address</div>
+                            <div class="panel-body">
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            @Html.ValidationMessageFor(m => m.BillingAddress.Name)
+                                            @Html.TextBoxFor(x => x.BillingAddress.Name, new { @class = "form-control", placeholder = "Location Name" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            @Html.ValidationMessageFor(m => m.BillingAddress.Address1)
+                                            @Html.TextBoxFor(x => x.BillingAddress.Address1, new { @class = "form-control", placeholder = "Address" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            @Html.ValidationMessageFor(m => m.BillingAddress.Address2)
+                                            @Html.TextBoxFor(x => x.BillingAddress.Address2, new { @class = "form-control", placeholder = "Address Line 2" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            @Html.ValidationMessageFor(m => m.BillingAddress.City)
+                                            @Html.TextBoxFor(x => x.BillingAddress.City, new { @class = "form-control", placeholder = "City" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            @Html.ValidationMessageFor(m => m.BillingAddress.State)
+                                            @Html.TextBoxFor(x => x.BillingAddress.State, new { @class = "form-control", placeholder = "State" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            @Html.ValidationMessageFor(m => m.BillingAddress.PostalCode)
+                                            @Html.TextBoxFor(x => x.BillingAddress.PostalCode, new { @class = "form-control", placeholder = "Postal Code" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            @Html.ValidationMessageFor(m => m.BillingAddress.Country)
+                                            @Html.TextBoxFor(x => x.BillingAddress.Country, new { @class = "form-control", placeholder = "Country" })
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> <!-- shipping panel body -->
+                        </div> <!-- shipping panel -->
+                    </div>
+                </div> <!-- end left/right col -->
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-default">Submit</button>
                 </div>
-
+                }
             </div>
         </div>
-    </div>
+        </div>
 </div>

@@ -7,13 +7,13 @@ namespace BuffaloTungsten.Domain.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class CustomerEntity : IMigrationMetadata
+    public sealed partial class ContactsCustomers : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(CustomerEntity));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(ContactsCustomers));
         
         string IMigrationMetadata.Id
         {
-            get { return "201510220106203_CustomerEntity"; }
+            get { return "201511190427593_Contacts-Customers"; }
         }
         
         string IMigrationMetadata.Source

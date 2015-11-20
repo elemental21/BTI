@@ -22,3 +22,9 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.greenSuccess {
+    color: #468847;
+    background-color: #DFF0D8;
+    border: 1px solid #D6E9C6;
+}

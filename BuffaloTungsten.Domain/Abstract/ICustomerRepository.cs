@@ -11,7 +11,9 @@ namespace BuffaloTungsten.Domain.Abstract
     {
         IQueryable<Contact> Customers { get; }
 
-        void AddCustomer(Contact customer);
+        void AddCustomer(Customer customer);
+
+        void AddContact(Contact contact);
 
         void Save();
     }

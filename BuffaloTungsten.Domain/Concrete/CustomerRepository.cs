@@ -15,10 +15,15 @@ namespace BuffaloTungsten.Domain.Concrete
 
         public IQueryable<Contact> Customers
         {
-            get { return _context.Customers; }
+            get { return _context.Contacts; }
         }
 
-        public void AddCustomer(Contact customer)
+        public void AddContact(Contact contact)
+        {
+            _context.Contacts.Add(contact);
+        }
+
+        public void AddCustomer(Customer customer)
         {
             _context.Customers.Add(customer);
         }

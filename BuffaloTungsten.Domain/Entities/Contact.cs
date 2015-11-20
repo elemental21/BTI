@@ -34,11 +34,18 @@ namespace BuffaloTungsten.Domain.Entities
         [StringLength(255)]
         public string Email { get; set; }
 
+        public Boolean IsPrimary { get; set; }
+
         [Column(TypeName = "varchar(MAX)")]
         public string Notes { get; set; }
 
-        [ForeignKey("EmployedBy")]
-        public int Customer_Id { get; set; }
-        public virtual Customer EmployedBy { get; set; }
+        public int? Customer_Id { get; set; }
+
+        public virtual Customer Customer { get; set; }
+
+
+        //[ForeignKey("Customer")]
+        //public int? Customer_Id { get; set; }
+        //public virtual Customer Customer { get; set; }
     }
 }
