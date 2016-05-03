@@ -11,6 +11,7 @@ namespace BuffaloTungsten.Models
     public class OrderIndexViewModel
     {
         public List<Customer> CustomerList { get; set; }
+        public Order Order { get; set; }
         [Display(Name = "Select Customer")]
         [Required]
         public int SelectedCustomerId { get; set; }

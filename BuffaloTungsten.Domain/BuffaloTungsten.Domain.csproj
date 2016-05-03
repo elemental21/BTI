@@ -62,6 +62,7 @@
     <Compile Include="Entities\LotType.cs" />
     <Compile Include="Entities\Manufacturer.cs" />
     <Compile Include="Entities\Category.cs" />
+    <Compile Include="Entities\Order.cs" />
     <Compile Include="Migrations\201508250316500_Inventory.cs" />
     <Compile Include="Migrations\201508250316500_Inventory.Designer.cs">
       <DependentUpon>201508250316500_Inventory.cs</DependentUpon>
