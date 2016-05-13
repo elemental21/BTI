@@ -1,4 +1,6 @@
-﻿using BuffaloTungsten.Domain.Abstract;
+﻿using AutoMapper;
+using BuffaloTungsten.Domain.Abstract;
+using BuffaloTungsten.Domain.Entities;
 using BuffaloTungsten.Models;
 using System;
 using System.Collections.Generic;
@@ -11,17 +13,33 @@ namespace BuffaloTungsten.Controllers
     public class OrderController : Controller
     {
         private ICustomerRepository _custRepo;
+        private ICategoryRepository _categoryRepo;
 
-        public OrderController(ICustomerRepository custRepo)
+        public OrderController(ICustomerRepository custRepo, ICategoryRepository categoryRepo)
         {
             _custRepo = custRepo;
+            _categoryRepo = categoryRepo;
         }
         // GET: Order
         public ActionResult Index()
         {
-            OrderIndexViewModel viewModel = new OrderIndexViewModel();
-            viewModel.CustomerList = _custRepo.Customers.Select(x => x.Customer).ToList();
-            return View(viewModel);
+            return View();
         }
+
+        public ActionResult NewOrder()
+        {
+            OrderIndexViewModel viewModel = new OrderIndexViewModel();
+            
+            return View(newOrderModelCreation(viewModel));
+        }
+
+
+        private OrderIndexViewModel newOrderModelCreation(OrderIndexViewModel viewModel)
+        {
+            viewModel.CustomerList = _custRepo.Customers.Select(x => x.Customer).ToList();
+            return viewModel;
+        }
+
     }
+
 }

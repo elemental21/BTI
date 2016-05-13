@@ -1,23 +1,14 @@
 ﻿@model BuffaloTungsten.Models.OrderIndexViewModel
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Order Management";
 }
 
-@using (Html.BeginForm("Save", "Order", null, FormMethod.Post))
-{
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
-            <div class="form-group">
-                @Html.LabelFor(m => m.SelectedCustomerId)
-                @Html.DropDownListFor(m => m.SelectedCustomerId, Model.Customers)
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(m => m.)
-                @Html.DropDownListFor(m => m.SelectedCustomerId, Model.Customers)
-            </div>
+            @Html.ActionLink("Create New Order","NewOrder")
         </div>
     </div>
-}
+
 
 

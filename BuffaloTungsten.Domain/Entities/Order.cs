@@ -17,6 +17,6 @@ namespace BuffaloTungsten.Domain.Entities
         public DateTime ShipDate { get; set; }
 
         public string PONumber { get; set; }
-        //type stuff?  I forget
+        public string ProductType { get; set; }
     }
 }

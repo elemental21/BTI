@@ -1,0 +1,40 @@
+﻿@model BuffaloTungsten.Models.OrderIndexViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@using (Html.BeginForm("Save", "Order", null, FormMethod.Post))
+{
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group">
+                @Html.LabelFor(m => m.SelectedCustomerId)
+                @Html.DropDownListFor(m => m.SelectedCustomerId, Model.Customers)
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                @Html.LabelFor(m => m.Order.DueDate)
+                @Html.TextBoxFor(m => m.Order.DueDate)
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                @Html.LabelFor(m => m.Order.PONumber)
+                @Html.TextBoxFor(m => m.Order.PONumber)
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                @Html.LabelFor(m => m.Order.ProductType)
+                @Html.DropDownListFor(m => m.SelectedCategoryId, Model.ProductTypes)
+                @Html.ValidationMessageFor(m => m.SelectedCategoryId)
+            </div>
+        </div>
+    </div>
+}
+
+
